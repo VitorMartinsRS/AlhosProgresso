@@ -354,18 +354,21 @@ p {
 
 .grade-produtos {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 22px;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 18px;
 }
 
 .cartao-produto {
+    display: flex;
+    flex-direction: column;
     min-width: 0;
     overflow: hidden;
     border: 1px solid #e6deea;
-    border-radius: 12px;
+    border-radius: 16px;
     background: #fff;
-    box-shadow: 0 8px 24px #4919680a;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 8px 24px #4919680d;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .cartao-produto:hover {
@@ -373,11 +376,53 @@ p {
     box-shadow: 0 16px 32px #4919681a;
 }
 
+.cartao-produto.mais-vendido {
+    position: relative;
+    border-color: #e8dbee;
+    background: #e8dbee;
+    box-shadow: 0 12px 28px #8f3f8f26;
+    transform: translateY(-6px);
+}
+
+.cartao-produto.mais-vendido:hover {
+    transform: translateY(-10px);
+}
+
+.cartao-produto.mais-vendido .informacoes-produto {
+    background: #e8dbee;
+}
+
+.cartao-produto.mais-vendido .informacoes-produto > span {
+    background: #fff;
+    color: #6f3676;
+}
+
+.cartao-produto.mais-vendido h3,
+.cartao-produto.mais-vendido p {
+    color: var(--roxo);
+}
+
+.etiqueta-mais-vendido {
+    position: absolute;
+    z-index: 2;
+    top: 14px;
+    left: 14px;
+    padding: 8px 11px;
+    border-radius: 20px;
+    background: #fff;
+    color: #6f3676;
+    box-shadow: 0 4px 12px #49196820;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
 .imagem-produto {
     width: 100%;
     aspect-ratio: 4 / 5;
     overflow: hidden;
-    background: #e8dbee;
+    background: #f4edf6;
 }
 
 .imagem-produto img {
@@ -394,8 +439,9 @@ p {
 }
 
 .informacoes-produto {
-    min-height: 145px;
-    padding: 18px 20px 20px;
+    flex: 1;
+    min-height: 132px;
+    padding: 18px 18px 16px;
 }
 
 .informacoes-produto > span {
@@ -412,7 +458,7 @@ p {
 .informacoes-produto h3 {
     margin: 11px 0 7px;
     color: var(--roxo);
-    font-size: 22px;
+    font-size: clamp(18px, 1.35vw, 22px);
     line-height: 1.25;
 }
 
@@ -427,7 +473,9 @@ p {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-top: 18px;
+    margin: auto 0 0;
+    padding: 0 18px 18px;
+    flex-wrap: wrap;
 }
 
 .controle-quantidade {
@@ -470,6 +518,20 @@ p {
 .botao-comprar:hover {
     transform: translateY(-2px);
     background: #683185;
+}
+
+.cartao-produto.mais-vendido .botao-comprar {
+    background: #fff;
+    color: #6f3676;
+}
+
+.cartao-produto.mais-vendido .botao-comprar:hover {
+    background: #f7eff8;
+}
+
+.cartao-produto.mais-vendido .campo-quantidade {
+    border-color: #fff;
+    background: #fff;
 }
 
 .acoes-flutuantes {
@@ -807,6 +869,13 @@ dialog li {
 @media (min-width: 1500px) {
     .arte-destaque {
         min-height: 570px;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 801px) {
+    .grade-produtos {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
     }
 }
 
