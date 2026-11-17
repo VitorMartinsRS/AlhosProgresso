@@ -1,2 +1,66 @@
-const recipes=[{title:'Arroz com alho',ingredients:'1 xícara de arroz, 2 dentes de alho picados, 1 colher de sopa de óleo, 2 xícaras de água quente e sal a gosto.',steps:['Aqueça o óleo e refogue o alho em fogo baixo, sem deixar queimar.','Adicione o arroz e mexa por um minuto. Junte a água quente e o sal.','Cozinhe em fogo baixo, com a panela parcialmente tampada, até a água secar e o arroz ficar macio. Deixe descansar antes de servir.']},{title:'Macarrão alho e óleo',ingredients:'200 g de macarrão, 3 dentes de alho fatiados, 3 colheres de sopa de azeite, sal e salsinha a gosto.',steps:['Cozinhe o macarrão em água com sal conforme a embalagem. Reserve um pouco da água do cozimento.','Aqueça o azeite e doure levemente o alho em fogo baixo.','Junte o macarrão escorrido e um pouco da água reservada. Misture, finalize com salsinha e sirva.']},{title:'Pão com manteiga de alho',ingredients:'1 baguete pequena, 2 colheres de sopa de manteiga amolecida, 2 dentes de alho bem picados e salsinha a gosto.',steps:['Misture a manteiga, o alho e a salsinha.','Corte o pão em fatias, sem separar completamente a base, e espalhe a mistura entre elas.','Leve ao forno preaquecido a 180 °C por cerca de 10 a 15 minutos, até dourar. Sirva ainda quente.']}];
-const dialog=document.querySelector('dialog');document.querySelectorAll('[data-recipe]').forEach(button=>button.addEventListener('click',()=>{const recipe=recipes[Number(button.dataset.recipe)];document.querySelector('#recipe-title').textContent=recipe.title;document.querySelector('#ingredients').textContent=recipe.ingredients;document.querySelector('#steps').replaceChildren(...recipe.steps.map(step=>{const li=document.createElement('li');li.textContent=step;return li}));dialog.showModal()}));document.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});
+const recipes = [{
+        title: 'Arroz com alho',
+        ingredients: '1 xícara de arroz, 2 dentes de alho picados, 1 colher de sopa de óleo, 2 xícaras de água quente e sal a gosto.',
+        steps: [
+            'Aqueça o óleo e refogue o alho em fogo baixo, sem deixar queimar.',
+            'Adicione o arroz e mexa por um minuto. Junte a água quente e o sal.',
+            'Cozinhe em fogo baixo, com a panela parcialmente tampada, até a água secar e o arroz ficar macio. Deixe descansar antes de servir.'
+        ]
+    },
+    {
+        title: 'Macarrão alho e óleo',
+        ingredients: '200 g de macarrão, 3 dentes de alho fatiados, 3 colheres de sopa de azeite, sal e salsinha a gosto.',
+        steps: [
+            'Cozinhe o macarrão em água com sal conforme a embalagem. Reserve um pouco da água do cozimento.',
+            'Aqueça o azeite e doure levemente o alho em fogo baixo.',
+            'Junte o macarrão escorrido e um pouco da água reservada. Misture, finalize com salsinha e sirva.'
+        ]
+    },
+    {
+        title: 'Pão com manteiga de alho',
+        ingredients: '1 baguete pequena, 2 colheres de sopa de manteiga amolecida, 2 dentes de alho bem picados e salsinha a gosto.',
+        steps: [
+            'Misture a manteiga, o alho e a salsinha.',
+            'Corte o pão em fatias, sem separar completamente a base, e espalhe a mistura entre elas.',
+            'Leve ao forno preaquecido a 180 °C por cerca de 10 a 15 minutos, até dourar. Sirva ainda quente.'
+        ]
+    }
+];
+
+const dialog = document.querySelector('dialog');
+
+document.querySelectorAll('[data-recipe]').forEach(button => {
+    button.addEventListener('click', () => {
+        const recipe = recipes[Number(button.dataset.recipe)];
+
+        document.querySelector('#recipe-title').textContent = recipe.title;
+        document.querySelector('#ingredients').textContent = recipe.ingredients;
+        document.querySelector('#steps').replaceChildren(
+            ...recipe.steps.map(step => {
+                const li = document.createElement('li');
+                li.textContent = step;
+                return li;
+            })
+        );
+
+        dialog.showModal();
+    });
+});
+
+document.querySelector('.close').addEventListener('click', () => {
+    dialog.close();
+});
+
+dialog.addEventListener('click', e => {
+    if (e.target === dialog) {
+        const r = dialog.getBoundingClientRect();
+        if (
+            e.clientX < r.left ||
+            e.clientX > r.right ||
+            e.clientY < r.top ||
+            e.clientY > r.bottom
+        ) {
+            dialog.close();
+        }
+    }
+});
