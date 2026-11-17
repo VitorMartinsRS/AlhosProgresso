@@ -354,9 +354,9 @@ p {
 
 .grade-produtos {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     align-items: stretch;
-    gap: 18px;
+    gap: 22px;
 }
 
 .cartao-produto {
@@ -381,11 +381,6 @@ p {
     border-color: #e8dbee;
     background: #e8dbee;
     box-shadow: 0 12px 28px #8f3f8f26;
-    transform: translateY(-6px);
-}
-
-.cartao-produto.mais-vendido:hover {
-    transform: translateY(-10px);
 }
 
 .cartao-produto.mais-vendido .informacoes-produto {
@@ -874,7 +869,7 @@ dialog li {
 
 @media (max-width: 1200px) and (min-width: 801px) {
     .grade-produtos {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 20px;
     }
 }
