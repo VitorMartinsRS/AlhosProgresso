@@ -33,7 +33,8 @@ const produtos = [
   { identificador: 'mix', nome: 'Mix' },
   { identificador: 'cheiro-verde', nome: 'Cheiro-verde' },
   { identificador: 'calabacon', nome: 'Calabacon' },
-  { identificador: 'descascado', nome: 'Alho descascado' }
+  { identificador: 'descascado', nome: 'Alho descascado' },
+  { identificador: 'puro', nome: 'Alho puro' }
 ];
 const chaveCarrinho = 'alhos-progresso-carrinho';
 const telefoneWhatsApp = '5511943441746';
