@@ -31,8 +31,8 @@ janela.addEventListener('click', evento => {
 // As quantidades do carrinho são unidades inteiras, entre 1 e 99, por embalagem.
 const produtos = [
     { identificador: 'mix', nome: 'Mix', variantes: [{ identificador: 'mix-250g', embalagem: '250 g', preco: 19.90 }, { identificador: 'mix-500g', embalagem: '500 g', preco: 34.90 }] },
-    { identificador: 'cheiro-verde', nome: 'Cheiro-verde', variantes: [{ identificador: 'cheiro-verde-250g', embalagem: '250 g', preco: 16.90 }] },
-    { identificador: 'calabacon', nome: 'Calabacon', variantes: [{ identificador: 'calabacon-250g', embalagem: '250 g', preco: 18.90 }] },
+    { identificador: 'cheiro-verde', nome: 'Cheiro-verde', variantes: [{ identificador: 'cheiro-verde-250g', embalagem: '250 g', preco: 16.90 }, { identificador: 'cheiro-verde-500g', embalagem: '500 g', preco: 29.90 }] },
+    { identificador: 'calabacon', nome: 'Calabacon', variantes: [{ identificador: 'calabacon-250g', embalagem: '250 g', preco: 18.90 }, { identificador: 'calabacon-500g', embalagem: '500 g', preco: 29.90 }] },
     { identificador: 'descascado', nome: 'Alho descascado', variantes: [{ identificador: 'descascado-1kg', embalagem: '1 kg', preco: 38.90 }, { identificador: 'descascado-500g', embalagem: '500 g', preco: 19.90 }] },
     { identificador: 'puro', nome: 'Alho puro', variantes: [{ identificador: 'puro-250g', embalagem: '250 g', preco: 16.90 }, { identificador: 'puro-500g', embalagem: '500 g', preco: 29.90 }] }
 ];
